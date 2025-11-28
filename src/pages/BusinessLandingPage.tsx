@@ -84,9 +84,9 @@ export const BusinessLandingPage: React.FC = () => {
 
         {/* 4. Big testimonial */}
         <BigQuote
-          quote="JaxSaver makes creating promotions so easy that anyone in our office can do it."
+          quote="Cold Pitch transformed our sales process. We went from struggling with scripts to having professional pitches ready in minutes."
           author="Matthew Thomas"
-          role="CEO at Island Glass"
+          role="Sales Director"
         />
 
         {/* 5. Support features - Live chat & Expert guidance */}
@@ -99,9 +99,9 @@ export const BusinessLandingPage: React.FC = () => {
 
         {/* 6. Another quote */}
         <BigQuote
-          quote="I don't have the time to manage ads and I don't want to pay thousands a month for someone to do it for me. Jax Saver gets me the exposure I need without breaking the bank."
+          quote="I used to spend hours writing sales scripts. Now I answer a few questions and get a polished pitch with audio - it's like having a professional copywriter on demand."
           author="Emily McKinley"
-          role="Owner at McKinley Medical"
+          role="Business Owner"
         />
 
         {/* 7. Automation features - Auto-publish & Automation rules */}

@@ -99,12 +99,12 @@ export const SimpleAuthProvider: React.FC<{ children: React.ReactNode }> = ({ ch
               parsedUser = storedData;
             }
             
-            // Check if this is a @jaxsaver.com email - automatically make them SUPER_ADMIN
-            const ADMIN_DOMAIN = 'jaxsaver.com';
-            const isJaxSaverEmail = parsedUser.email?.endsWith(`@${ADMIN_DOMAIN}`);
-            
-            if (isJaxSaverEmail) {
-              console.log('[SimpleAuthProvider] JaxSaver domain email detected on init, setting SUPER_ADMIN role:', parsedUser.email);
+            // Check if this is an admin domain email - automatically make them SUPER_ADMIN
+            const ADMIN_DOMAIN = 'coldpitch.ai';
+            const isAdminEmail = parsedUser.email?.endsWith(`@${ADMIN_DOMAIN}`);
+
+            if (isAdminEmail) {
+              console.log('[SimpleAuthProvider] Admin domain email detected on init, setting SUPER_ADMIN role:', parsedUser.email);
               parsedUser.role = UserRole.SUPER_ADMIN;
             } else {
               // Verify the role is a valid UserRole enum value
@@ -206,15 +206,15 @@ export const SimpleAuthProvider: React.FC<{ children: React.ReactNode }> = ({ ch
     };
     const roleLower = normalizedUser.role?.toString().toLowerCase();
     
-    // Check if this is a @jaxsaver.com email - automatically make them SUPER_ADMIN
-    const ADMIN_DOMAIN = 'jaxsaver.com';
-    const isJaxSaverEmail = normalizedUser.email?.endsWith(`@${ADMIN_DOMAIN}`);
-    
-    if (isJaxSaverEmail) {
-      console.log('[SimpleAuthProvider] JaxSaver domain email detected, setting SUPER_ADMIN role:', normalizedUser.email);
+    // Check if this is an admin domain email - automatically make them SUPER_ADMIN
+    const ADMIN_DOMAIN = 'coldpitch.ai';
+    const isAdminEmail = normalizedUser.email?.endsWith(`@${ADMIN_DOMAIN}`);
+
+    if (isAdminEmail) {
+      console.log('[SimpleAuthProvider] Admin domain email detected, setting SUPER_ADMIN role:', normalizedUser.email);
       normalizedUser.role = UserRole.SUPER_ADMIN;
     } else {
-      // Normal role normalization for non-JaxSaver emails
+      // Normal role normalization for non-admin domain emails
       if (roleLower === 'business') {
         normalizedUser.role = UserRole.BUSINESS;
       } else if (roleLower === 'admin') {

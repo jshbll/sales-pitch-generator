@@ -14,7 +14,7 @@ import { BusinessProfile } from '../../types/business/businessProfile.types';
  * Cache configuration
  */
 const CACHE_CONFIG = {
-  PREFIX: 'jaxsaver_business_cache_',
+  PREFIX: 'coldpitch_cache_',
   TTL: 10 * 60 * 1000, // 10 minutes
   MAX_ENTRIES: 50
 } as const;

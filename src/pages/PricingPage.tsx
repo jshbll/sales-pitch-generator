@@ -134,7 +134,7 @@ export const PricingPage: React.FC = () => {
               <HowItWorksStep
                 step={3}
                 title="Reach Local Customers"
-                description="Your promotions go live in the JaxSaver app. Track views, saves, and customer engagement."
+                description="Download your script and audio instantly. Use it for calls, presentations, or marketing."
                 icon={<BarChart3 size={28} color="#f59e0b" />}
               />
             </Box>
