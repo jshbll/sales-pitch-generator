@@ -371,7 +371,7 @@ export const Hero: React.FC = () => {
   const handleGetStarted = () => {
     trackGetStartedClick('hero', 'signed_out');
     // Go to audio generator for demo, or pricing for production
-    navigate(HAS_CLERK ? '/pricing' : '/admin/audio-generator');
+    navigate(HAS_CLERK ? '/pricing' : '/create');
   };
 
   // Determine button text
@@ -2368,7 +2368,7 @@ export const FinalCTA: React.FC = () => {
   const handleGetStarted = () => {
     trackGetStartedClick('final_cta', 'signed_out');
     // Go to audio generator for demo, or pricing for production
-    navigate(HAS_CLERK ? '/pricing' : '/admin/audio-generator');
+    navigate(HAS_CLERK ? '/pricing' : '/create');
   };
 
   // Determine button text

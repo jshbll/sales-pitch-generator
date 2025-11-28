@@ -31,7 +31,7 @@ export const PricingPreview: React.FC = () => {
       navigate(`/sign-up?redirect=/checkout?plan=${plan.clerkPlanId}&period=${billingPeriod}`);
     } else {
       // For dev without Clerk, go to audio generator
-      navigate('/admin/audio-generator');
+      navigate('/create');
     }
   };
 

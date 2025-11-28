@@ -126,7 +126,7 @@ const LandingFooter: React.FC = () => {
                 </Typography>
                 <Typography
                   component="span"
-                  onClick={() => navigate('/admin/audio-generator/new')}
+                  onClick={() => navigate('/create/new')}
                   variant="body2"
                   sx={{
                     color: '#94a3b8',

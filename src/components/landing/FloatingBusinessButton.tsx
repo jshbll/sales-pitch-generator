@@ -16,7 +16,7 @@ export const FloatingBusinessButton: React.FC = () => {
       navigate('/sign-in');
     } else {
       // Without Clerk, go directly to dashboard (for dev)
-      navigate('/admin/audio-generator');
+      navigate('/create');
     }
   };
 

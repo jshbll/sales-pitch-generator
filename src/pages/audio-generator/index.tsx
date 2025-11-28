@@ -125,7 +125,7 @@ export const AudioGeneratorIndex: React.FC = () => {
             variant="contained"
             size="large"
             endIcon={<ArrowRight size={20} />}
-            onClick={() => navigate('/admin/audio-generator/new')}
+            onClick={() => navigate('/create/new')}
             sx={{
               bgcolor: '#fbbf24',
               color: '#000',

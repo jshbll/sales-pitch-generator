@@ -220,7 +220,7 @@ export const AudioPreview: React.FC = () => {
         {/* Back button */}
         <Button
           startIcon={<ArrowLeft size={18} />}
-          onClick={() => navigate('/admin/audio-generator/new')}
+          onClick={() => navigate('/create/new')}
           sx={{
             mb: 3,
             color: '#64748b',

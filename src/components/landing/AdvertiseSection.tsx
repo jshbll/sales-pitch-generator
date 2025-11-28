@@ -123,7 +123,7 @@ export const AdvertiseSection: React.FC = () => {
             </Typography>
             <Button
               variant="contained"
-              onClick={() => navigate(HAS_CLERK ? '/sign-in' : '/admin/audio-generator')}
+              onClick={() => navigate(HAS_CLERK ? '/sign-in' : '/create')}
               endIcon={<Rocket size={20} />}
               sx={{
                 bgcolor: '#FCD34D',

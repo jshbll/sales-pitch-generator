@@ -51,12 +51,9 @@ const AppRoutes: React.FC = () => {
         <Route path="/register" element={<ClerkSignUp />} />
 
         {/* Audio Generator routes */}
-        <Route path="/admin/audio-generator" element={<AudioWizard />} />
-        <Route path="/admin/audio-generator/new" element={<AudioWizard />} />
-        <Route path="/admin/audio-generator/:id" element={<AudioPreview />} />
-
-        {/* Admin redirect */}
-        <Route path="/admin" element={<Navigate to="/admin/audio-generator" replace />} />
+        <Route path="/create" element={<AudioWizard />} />
+        <Route path="/create/new" element={<AudioWizard />} />
+        <Route path="/pitch/:id" element={<AudioPreview />} />
 
         {/* Catch-all route for 404 */}
         <Route path="*" element={<NotFound />} />

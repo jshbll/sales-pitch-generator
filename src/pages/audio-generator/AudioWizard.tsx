@@ -59,7 +59,7 @@ export const AudioWizard: React.FC = () => {
       });
 
       // Navigate to preview page with the generation ID
-      navigate(`/admin/audio-generator/${generationId}`);
+      navigate(`/pitch/${generationId}`);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to create generation');
       setIsGenerating(false);

@@ -226,7 +226,7 @@ export const HeroSection: React.FC = () => {
         <Button
           variant="contained"
           size="large"
-          onClick={() => navigate('/admin/audio-generator/new')}
+          onClick={() => navigate('/create/new')}
           endIcon={<ArrowRight size={20} />}
           sx={{
             bgcolor: '#0f172a',
@@ -553,7 +553,7 @@ export const FinalCTASection: React.FC = () => {
         <Button
           variant="contained"
           size="large"
-          onClick={() => navigate('/admin/audio-generator/new')}
+          onClick={() => navigate('/create/new')}
           endIcon={<ArrowRight size={20} />}
           sx={{
             bgcolor: '#fbbf24',

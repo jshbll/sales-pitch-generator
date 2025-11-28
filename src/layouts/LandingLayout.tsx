@@ -17,7 +17,7 @@ export const LandingLayout: React.FC<LandingLayoutProps> = ({ children }) => {
     { name: 'Home', path: '/' },
     { name: 'Features', section: 'features' },
     { name: 'How It Works', section: 'how-it-works' },
-    { name: 'Get Started', action: () => navigate('/admin/audio-generator/new') },
+    { name: 'Get Started', action: () => navigate('/create/new') },
   ];
 
   const scrollToSection = (sectionId: string) => {
