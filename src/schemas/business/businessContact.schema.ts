@@ -4,7 +4,7 @@
  * Zod schema for validating business contact information.
  * 
  * @version 1.0.0
- * @author JaxSaver Team
+ * @author Cold Pitch Team
  */
 
 import { z } from 'zod';

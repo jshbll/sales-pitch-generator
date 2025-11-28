@@ -1,4 +1,4 @@
-// Local constants - replaces @jaxsaver/shared/constants
+// Application constants
 
 export const INDUSTRY_CATEGORIES: Record<string, string[]> = {
   'Food & Dining': [

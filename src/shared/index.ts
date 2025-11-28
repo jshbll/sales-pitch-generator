@@ -1,4 +1,4 @@
-// Shared module exports - replaces @jaxsaver/shared/*
+// Shared module exports
 
 export * from './types';
 export * from './convex-client';

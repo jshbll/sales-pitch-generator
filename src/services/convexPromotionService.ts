@@ -2,6 +2,7 @@ import { ConvexClientManager } from '../shared/convex-client';
 import { api } from '../../convex/_generated/api';
 import { Id } from '../../convex/_generated/dataModel';
 import { Promotion, ApiResponse } from '../types';
+import { AUTH_USER_KEY } from '../utils/config';
 
 // Convert Convex promotion to local Promotion interface
 function convertFromConvexPromotion(convexPromotion: any): Promotion {
@@ -728,7 +729,7 @@ class ConvexPromotionService {
       
       if (!businessId) {
         // Try to get from localStorage (stored by auth context)
-        const storedUser = localStorage.getItem('jaxsaver_user') || sessionStorage.getItem('jaxsaver_user');
+        const storedUser = localStorage.getItem(AUTH_USER_KEY) || sessionStorage.getItem(AUTH_USER_KEY);
         if (storedUser) {
           const userData = JSON.parse(storedUser);
           businessId = userData.businessId || userData.business_id;
@@ -1076,7 +1077,7 @@ class ConvexPromotionService {
       const client = this.getClient();
       
       if (!businessId) {
-        const user = JSON.parse(localStorage.getItem('jaxsaver_user') || '{}');
+        const user = JSON.parse(localStorage.getItem(AUTH_USER_KEY) || '{}');
         businessId = user.businessId;
       }
 

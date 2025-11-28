@@ -5,7 +5,7 @@
  * and utility functions for data transformation.
  * 
  * @version 2.0.0
- * @author JaxSaver Team
+ * @author Cold Pitch Team
  */
 
 import { z } from 'zod';

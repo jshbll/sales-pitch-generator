@@ -61,8 +61,8 @@ export const LandingLayout: React.FC<LandingLayoutProps> = ({ children }) => {
           <Box component={RouterLink} to="/" sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
             <Box
               component="img"
-              src="/jaxsaver.svg"
-              alt="Logo"
+              src="/logo.svg"
+              alt="Cold Pitch"
               sx={{ height: { xs: 32, sm: 40 }, width: 'auto' }}
             />
           </Box>

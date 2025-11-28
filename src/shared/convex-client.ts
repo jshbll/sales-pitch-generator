@@ -1,4 +1,4 @@
-// Local ConvexClientManager - replaces @jaxsaver/shared/convex-client
+// ConvexClientManager - Singleton manager for Convex client
 import { ConvexReactClient } from 'convex/react';
 
 /**
