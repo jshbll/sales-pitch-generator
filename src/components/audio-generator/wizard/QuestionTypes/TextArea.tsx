@@ -41,6 +41,11 @@ export const TextArea: React.FC<TextAreaProps> = ({
           px: 2,
           fontSize: '1rem',
           lineHeight: 1.6,
+          color: '#1e293b',
+          '&::placeholder': {
+            color: '#94a3b8',
+            opacity: 1,
+          },
         },
       }}
     />

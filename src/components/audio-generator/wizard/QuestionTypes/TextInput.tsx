@@ -38,6 +38,11 @@ export const TextInput: React.FC<TextInputProps> = ({
           py: 1.5,
           px: 2,
           fontSize: '1rem',
+          color: '#1e293b',
+          '&::placeholder': {
+            color: '#94a3b8',
+            opacity: 1,
+          },
         },
       }}
     />
