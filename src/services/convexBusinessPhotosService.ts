@@ -1,5 +1,5 @@
-import { ConvexClientManager } from '../shared/convex-client';
-import { createConvexAPI } from '../shared/convex-api';
+import { ConvexClientManager } from './convexClientManager';
+import { createConvexAPI } from './convexApi';
 import { Id } from '../../convex/_generated/dataModel';
 import { api } from '../../convex/_generated/api';
 import { processImageFile } from '../utils/imageUtils';

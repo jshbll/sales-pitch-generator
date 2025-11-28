@@ -1,5 +1,5 @@
-import { ConvexClientManager } from '../shared/convex-client';
-import { createConvexAPI, User as ConvexUser } from '../shared/convex-api';
+import { ConvexClientManager } from './convexClientManager';
+import { createConvexAPI, User as ConvexUser } from './convexApi';
 import { UserRole } from '../types';
 import { ApiResponse } from '../types';
 import { AUTH_USER_KEY, AUTH_TOKEN_KEY } from '../utils/config';

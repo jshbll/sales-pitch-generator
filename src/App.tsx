@@ -16,7 +16,7 @@ import getTheme from './theme'; // Import our custom theme function
 import { ConvexProviderWithClerk } from 'convex/react-clerk';
 import { ConvexProvider, ConvexReactClient } from 'convex/react';
 import { useAuth } from '@clerk/clerk-react';
-import { ConvexClientManager } from './shared/convex-client';
+import { ConvexClientManager } from './services/convexClientManager';
 // import { ConvexAuthStorage } from './utils/convexAuthStorage'; // TEMPORARILY DISABLED
 
 // Check if Clerk is available

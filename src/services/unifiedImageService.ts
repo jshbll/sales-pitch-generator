@@ -1,5 +1,5 @@
 import { isCloudflareUrl } from '../utils/imageUtils';
-import { ConvexClientManager } from '../shared/convex-client';
+import { ConvexClientManager } from './convexClientManager';
 import { api } from '../../convex/_generated/api';
 
 // Helper function to safely access environment variables in both Node.js and browser environments

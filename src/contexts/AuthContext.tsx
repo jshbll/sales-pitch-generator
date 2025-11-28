@@ -4,7 +4,7 @@ import { authService } from '../services/serviceSelector';
 import { AUTH_TOKEN_KEY, AUTH_USER_KEY } from '../utils/config';
 import { AuthContext, AuthContextState } from './AuthContextDefinition'; // Only import Context and State type
 import { getDefaultRoute } from '../utils/routeUtils'; // Import helper function
-import { ConvexClientManager } from '../shared/convex-client';
+import { ConvexClientManager } from '../services/convexClientManager';
 import { api } from '../../convex/_generated/api';
 
 // Provider component

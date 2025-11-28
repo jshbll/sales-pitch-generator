@@ -1,5 +1,5 @@
-import { ConvexClientManager } from '../shared/convex-client';
-import { createConvexAPI, BaseBusiness as ConvexBusiness } from '../shared/convex-api';
+import { ConvexClientManager } from './convexClientManager';
+import { createConvexAPI, BaseBusiness as ConvexBusiness } from './convexApi';
 import { Id } from '../../convex/_generated/dataModel';
 import { api } from '../../convex/_generated/api';
 import { BusinessProfile, ApiResponse } from '../types';

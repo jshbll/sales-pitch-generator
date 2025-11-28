@@ -1,5 +1,4 @@
-// Stub for legacy convex-api - replaces @jaxsaver/shared/convex-client/convex-api
-// These are legacy methods that are no longer used in the main app flow
+// Legacy convex-api stub - these methods are no longer used in the main app flow
 // (App uses Clerk auth and direct Convex mutations instead)
 
 import { ConvexReactClient } from 'convex/react';

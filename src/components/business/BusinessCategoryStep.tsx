@@ -10,7 +10,7 @@ import {
   Alert,
   TextField
 } from '@mui/material';
-import { INDUSTRY_CATEGORIES as industrySubMapping } from "../../shared/constants";
+import { INDUSTRY_CATEGORIES as industrySubMapping } from "../../utils/constants";
 
 // Define a type for category objects
 interface BusinessCategory {

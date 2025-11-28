@@ -1,4 +1,4 @@
-import { ConvexClientManager } from '../shared/convex-client';
+import { ConvexClientManager } from './convexClientManager';
 import { api } from '../../convex/_generated/api';
 import { Id } from '../../convex/_generated/dataModel';
 import { Promotion, ApiResponse } from '../types';
