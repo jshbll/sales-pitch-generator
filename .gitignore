@@ -10,8 +10,7 @@ build/
 .env.local
 .env.*.local
 
-# Convex
-convex/_generated/
+# Convex (generated files are committed for deployment)
 
 # IDE
 .vscode/
