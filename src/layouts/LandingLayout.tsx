@@ -20,7 +20,7 @@ export const LandingLayout: React.FC<LandingLayoutProps> = ({ children }) => {
     { name: 'Home', path: '/' },
     { name: 'Features', section: 'features' },
     { name: 'How It Works', section: 'how-it-works' },
-    { name: 'Get Started', action: () => navigate(HAS_CLERK ? '/pricing' : '/admin/audio-generator') },
+    { name: 'Get Started', action: () => navigate('/admin/audio-generator/new') },
   ];
 
   const scrollToSection = (sectionId: string) => {
@@ -58,13 +58,42 @@ export const LandingLayout: React.FC<LandingLayoutProps> = ({ children }) => {
       >
         <Toolbar sx={{ maxWidth: 1200, width: '100%', mx: 'auto', px: { xs: 2, sm: 3 }, justifyContent: 'space-between' }}>
           {/* Logo */}
-          <Box component={RouterLink} to="/" sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+          <Box
+            component={RouterLink}
+            to="/"
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              textDecoration: 'none',
+              gap: 1,
+            }}
+          >
             <Box
-              component="img"
-              src="/logo.svg"
-              alt="Cold Pitch"
-              sx={{ height: { xs: 32, sm: 40 }, width: 'auto' }}
-            />
+              sx={{
+                width: 36,
+                height: 36,
+                borderRadius: '8px',
+                bgcolor: '#fbbf24',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontWeight: 800,
+                fontSize: '1.25rem',
+                color: '#0f172a',
+              }}
+            >
+              CP
+            </Box>
+            <Box
+              sx={{
+                fontSize: '1.25rem',
+                fontWeight: 700,
+                color: '#1e293b',
+                display: { xs: 'none', sm: 'block' },
+              }}
+            >
+              Cold Pitch
+            </Box>
           </Box>
 
           {/* Desktop Navigation */}

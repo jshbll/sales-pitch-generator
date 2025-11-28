@@ -1,15 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Box, Container, Grid, Typography, Stack } from '@mui/material';
-import { Phone, MapPin } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Box, Container, Typography, Stack } from '@mui/material';
+import { Mail } from 'lucide-react';
 
 const LandingFooter: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <Box
       component="footer"
       sx={{
-        bgcolor: 'white',
-        color: '#1e293b'
+        bgcolor: '#1e293b',
+        color: 'white',
       }}
     >
       <Container maxWidth="lg" sx={{ py: { xs: 6, md: 8 }, px: { xs: 2, sm: 3, lg: 4 } }}>
@@ -18,7 +20,7 @@ const LandingFooter: React.FC = () => {
             display: 'flex',
             flexDirection: { xs: 'column', md: 'row' },
             justifyContent: 'space-between',
-            alignItems: 'flex-start'
+            alignItems: 'flex-start',
           }}
         >
           {/* Company Info - Left Side */}
@@ -26,37 +28,61 @@ const LandingFooter: React.FC = () => {
             <Box
               component={Link}
               to="/"
-              sx={{ display: 'inline-block', textDecoration: 'none' }}
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 1,
+                textDecoration: 'none',
+              }}
             >
               <Box
-                component="img"
-                src="/jaxsaver-golden-logo.svg"
-                alt="JaxSaver"
-                sx={{ height: 32 }}
-              />
+                sx={{
+                  width: 36,
+                  height: 36,
+                  borderRadius: '8px',
+                  bgcolor: '#fbbf24',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontWeight: 800,
+                  fontSize: '1.25rem',
+                  color: '#0f172a',
+                }}
+              >
+                CP
+              </Box>
+              <Box
+                sx={{
+                  fontSize: '1.25rem',
+                  fontWeight: 700,
+                  color: 'white',
+                }}
+              >
+                Cold Pitch
+              </Box>
             </Box>
             <Typography
               variant="body2"
               sx={{
                 mt: 2,
-                color: '#64748b',
+                color: '#94a3b8',
                 fontSize: '0.875rem',
-                maxWidth: 300
+                maxWidth: 300,
               }}
             >
-              Search and Save Local.
+              AI-powered sales scripts and audio for modern sales teams.
             </Typography>
           </Box>
 
-          {/* Navigation and Contact - Right Side */}
+          {/* Navigation - Right Side */}
           <Box
             sx={{
               display: 'grid',
-              gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' },
-              gap: { xs: 4, md: 6, lg: 8 }
+              gridTemplateColumns: { xs: '1fr 1fr', md: 'repeat(3, 1fr)' },
+              gap: { xs: 4, md: 6, lg: 8 },
             }}
           >
-            {/* Quick Links Column */}
+            {/* Product Column */}
             <Box>
               <Typography
                 variant="subtitle2"
@@ -66,48 +92,56 @@ const LandingFooter: React.FC = () => {
                   textTransform: 'uppercase',
                   letterSpacing: 1,
                   color: '#fbbf24',
-                  mb: 2
+                  mb: 2,
                 }}
               >
-                Quick Links
+                Product
               </Typography>
               <Stack spacing={1.5}>
                 <Typography
                   component={Link}
-                  to="/contact"
+                  to="/#features"
                   variant="body2"
                   sx={{
-                    color: '#64748b',
+                    color: '#94a3b8',
                     fontSize: '0.875rem',
                     textDecoration: 'none',
-                    '&:hover': {
-                      color: '#fbbf24'
-                    }
+                    '&:hover': { color: '#fbbf24' },
                   }}
                 >
-                  Contact Us
+                  Features
                 </Typography>
                 <Typography
-                  component="a"
-                  href="https://business.jaxsaver.com/login"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  component={Link}
+                  to="/#how-it-works"
                   variant="body2"
                   sx={{
-                    color: '#64748b',
+                    color: '#94a3b8',
                     fontSize: '0.875rem',
                     textDecoration: 'none',
-                    '&:hover': {
-                      color: '#fbbf24'
-                    }
+                    '&:hover': { color: '#fbbf24' },
                   }}
                 >
-                  Business Login
+                  How It Works
+                </Typography>
+                <Typography
+                  component="span"
+                  onClick={() => navigate('/admin/audio-generator/new')}
+                  variant="body2"
+                  sx={{
+                    color: '#94a3b8',
+                    fontSize: '0.875rem',
+                    textDecoration: 'none',
+                    cursor: 'pointer',
+                    '&:hover': { color: '#fbbf24' },
+                  }}
+                >
+                  Get Started
                 </Typography>
               </Stack>
             </Box>
 
-            {/* Legal Column */}
+            {/* Use Cases Column */}
             <Box>
               <Typography
                 variant="subtitle2"
@@ -117,41 +151,29 @@ const LandingFooter: React.FC = () => {
                   textTransform: 'uppercase',
                   letterSpacing: 1,
                   color: '#fbbf24',
-                  mb: 2
+                  mb: 2,
                 }}
               >
-                Legal
+                Use Cases
               </Typography>
               <Stack spacing={1.5}>
                 <Typography
-                  component={Link}
-                  to="/terms"
                   variant="body2"
-                  sx={{
-                    color: '#64748b',
-                    fontSize: '0.875rem',
-                    textDecoration: 'none',
-                    '&:hover': {
-                      color: '#fbbf24'
-                    }
-                  }}
+                  sx={{ color: '#94a3b8', fontSize: '0.875rem' }}
                 >
-                  Terms & Disclosures
+                  Voicemail Drops
                 </Typography>
                 <Typography
-                  component={Link}
-                  to="/privacy-policy"
                   variant="body2"
-                  sx={{
-                    color: '#64748b',
-                    fontSize: '0.875rem',
-                    textDecoration: 'none',
-                    '&:hover': {
-                      color: '#fbbf24'
-                    }
-                  }}
+                  sx={{ color: '#94a3b8', fontSize: '0.875rem' }}
                 >
-                  Privacy Policy
+                  Sales Training
+                </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{ color: '#94a3b8', fontSize: '0.875rem' }}
+                >
+                  Cold Calling
                 </Typography>
               </Stack>
             </Box>
@@ -166,7 +188,7 @@ const LandingFooter: React.FC = () => {
                   textTransform: 'uppercase',
                   letterSpacing: 1,
                   color: '#fbbf24',
-                  mb: 2
+                  mb: 2,
                 }}
               >
                 Contact
@@ -174,33 +196,19 @@ const LandingFooter: React.FC = () => {
               <Stack spacing={1.5}>
                 <Typography
                   component="a"
-                  href="tel:904-856-7283"
+                  href="mailto:hello@coldpitch.ai"
                   variant="body2"
                   sx={{
-                    color: '#64748b',
+                    color: '#94a3b8',
                     fontSize: '0.875rem',
                     textDecoration: 'none',
                     display: 'flex',
                     alignItems: 'center',
-                    '&:hover': {
-                      color: '#fbbf24'
-                    }
+                    '&:hover': { color: '#fbbf24' },
                   }}
                 >
-                  <Phone size={16} style={{ marginRight: 8 }} />
-                  904-856-SAVE
-                </Typography>
-                <Typography
-                  variant="body2"
-                  sx={{
-                    color: '#64748b',
-                    fontSize: '0.875rem',
-                    display: 'flex',
-                    alignItems: 'center'
-                  }}
-                >
-                  <MapPin size={16} style={{ marginRight: 8 }} />
-                  Jacksonville, FL
+                  <Mail size={16} style={{ marginRight: 8 }} />
+                  hello@coldpitch.ai
                 </Typography>
               </Stack>
             </Box>
@@ -210,9 +218,9 @@ const LandingFooter: React.FC = () => {
         {/* Copyright */}
         <Box
           sx={{
-            mt: 4,
+            mt: 6,
             pt: 4,
-            borderTop: '1px solid #e2e8f0'
+            borderTop: '1px solid #334155',
           }}
         >
           <Typography
@@ -220,10 +228,10 @@ const LandingFooter: React.FC = () => {
             sx={{
               color: '#64748b',
               fontSize: '0.875rem',
-              textAlign: 'center'
+              textAlign: 'center',
             }}
           >
-            {new Date().getFullYear()} Jax Saver. All rights reserved.
+            {new Date().getFullYear()} Cold Pitch. All rights reserved.
           </Typography>
         </Box>
       </Container>
