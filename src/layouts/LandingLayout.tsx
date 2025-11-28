@@ -4,9 +4,6 @@ import { Menu as MenuIcon, X as CloseIcon } from 'lucide-react';
 import { Link as RouterLink, useNavigate, useLocation } from 'react-router-dom';
 import LandingFooter from '../components/landing/LandingFooter';
 
-// Check if Clerk is available
-const HAS_CLERK = Boolean(import.meta.env.VITE_CLERK_PUBLISHABLE_KEY);
-
 interface LandingLayoutProps {
   children: ReactNode;
 }
@@ -125,13 +122,29 @@ export const LandingLayout: React.FC<LandingLayoutProps> = ({ children }) => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <Box sx={{ display: { xs: 'block', md: 'none' }, bgcolor: 'white', py: 2 }}>
+          <Box sx={{ display: { xs: 'block', md: 'none' }, bgcolor: 'white', py: 2, borderTop: '1px solid #e2e8f0' }}>
             {navLinks.map((link) => (
               <Button
                 key={link.name}
                 fullWidth
                 onClick={() => handleNavClick(link)}
-                sx={{ justifyContent: 'flex-start', pl: 3, py: 1.5, color: '#64748b' }}
+                sx={{
+                  justifyContent: link.name === 'Get Started' ? 'center' : 'flex-start',
+                  pl: link.name === 'Get Started' ? 2 : 3,
+                  pr: link.name === 'Get Started' ? 2 : 3,
+                  py: 1.5,
+                  mx: link.name === 'Get Started' ? 2 : 0,
+                  mt: link.name === 'Get Started' ? 1 : 0,
+                  width: link.name === 'Get Started' ? 'calc(100% - 32px)' : '100%',
+                  color: link.name === 'Get Started' ? 'white' : '#64748b',
+                  bgcolor: link.name === 'Get Started' ? '#fbbf24' : 'transparent',
+                  fontWeight: link.name === 'Get Started' ? 700 : 500,
+                  borderRadius: link.name === 'Get Started' ? 2 : 0,
+                  '&:hover': {
+                    bgcolor: link.name === 'Get Started' ? '#f59e0b' : 'rgba(0,0,0,0.05)',
+                    color: link.name === 'Get Started' ? 'white' : '#1e293b',
+                  },
+                }}
               >
                 {link.name}
               </Button>

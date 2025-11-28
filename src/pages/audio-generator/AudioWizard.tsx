@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Box, Container, Paper, Typography, CircularProgress } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useMutation } from 'convex/react';
 import { api } from '../../../convex/_generated/api';
 import { useWizard } from '../../audio-generator/hooks/useWizard';
@@ -9,6 +9,7 @@ import { WizardProgress, WizardQuestion, WizardNavigation, DevUsageTracker } fro
 
 export const AudioWizard: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [isGenerating, setIsGenerating] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -22,7 +23,22 @@ export const AudioWizard: React.FC = () => {
     goNext,
     goBack,
     isCurrentAnswerValid,
+    reset,
   } = useWizard();
+
+  // Reset wizard when navigating to /new route
+  const prevPathnameRef = useRef<string | null>(null);
+  useEffect(() => {
+    const isNewRoute = location.pathname.endsWith('/new');
+    const wasNewRoute = prevPathnameRef.current?.endsWith('/new');
+
+    // Reset when navigating TO /new (not already on /new)
+    if (isNewRoute && !wasNewRoute) {
+      reset();
+    }
+
+    prevPathnameRef.current = location.pathname;
+  }, [location.pathname, reset]);
 
   // Convex mutations
   const createGeneration = useMutation(api.audioGenerator.create);
