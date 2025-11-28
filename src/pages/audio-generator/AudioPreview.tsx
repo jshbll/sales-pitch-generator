@@ -136,16 +136,30 @@ export const AudioPreview: React.FC = () => {
     }
   };
 
-  const handleDownload = () => {
+  const handleDownload = async () => {
     const audioUrl = generation?.hq_url || generation?.preview_url;
     if (!audioUrl) return;
 
-    const link = document.createElement('a');
-    link.href = audioUrl;
-    link.download = `sales-pitch-${id}.mp3`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    try {
+      // Fetch the audio file as a blob to force download
+      const response = await fetch(audioUrl);
+      const blob = await response.blob();
+      const blobUrl = URL.createObjectURL(blob);
+
+      const link = document.createElement('a');
+      link.href = blobUrl;
+      link.download = `sales-pitch-${id}.mp3`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      // Clean up the blob URL
+      URL.revokeObjectURL(blobUrl);
+    } catch (error) {
+      console.error('Download failed:', error);
+      // Fallback: open in new tab
+      window.open(audioUrl, '_blank');
+    }
   };
 
   // Calculate costs
@@ -355,16 +369,24 @@ export const AudioPreview: React.FC = () => {
 
             {/* Voice selector */}
             <FormControl fullWidth sx={{ mb: 3 }}>
-              <InputLabel>Voice</InputLabel>
+              <InputLabel sx={{ color: '#64748b', '&.Mui-focused': { color: '#fbbf24' } }}>Voice</InputLabel>
               <Select
                 value={selectedVoice}
                 onChange={(e) => setSelectedVoice(e.target.value)}
                 label="Voice"
+                sx={{
+                  color: '#1e293b',
+                  bgcolor: '#f8fafc',
+                  '& .MuiOutlinedInput-notchedOutline': { borderColor: '#e2e8f0' },
+                  '&:hover .MuiOutlinedInput-notchedOutline': { borderColor: '#cbd5e1' },
+                  '&.Mui-focused .MuiOutlinedInput-notchedOutline': { borderColor: '#fbbf24' },
+                  '& .MuiSvgIcon-root': { color: '#64748b' },
+                }}
               >
                 {VOICE_OPTIONS.map((voice) => (
-                  <MenuItem key={voice.value} value={voice.value}>
+                  <MenuItem key={voice.value} value={voice.value} sx={{ bgcolor: 'white', '&:hover': { bgcolor: '#f8fafc' } }}>
                     <Box>
-                      <Typography sx={{ fontWeight: 500 }}>{voice.label}</Typography>
+                      <Typography sx={{ fontWeight: 500, color: '#1e293b' }}>{voice.label}</Typography>
                       <Typography sx={{ fontSize: '0.75rem', color: '#64748b' }}>
                         {voice.description}
                       </Typography>
@@ -441,7 +463,7 @@ export const AudioPreview: React.FC = () => {
                   </IconButton>
 
                   <Box sx={{ flex: 1 }}>
-                    <Typography sx={{ fontWeight: 500, fontSize: '0.875rem' }}>
+                    <Typography sx={{ fontWeight: 500, fontSize: '0.875rem', color: '#1e293b' }}>
                       {hasHQAudio ? 'High Quality Audio' : 'Preview Audio'}
                     </Typography>
                     <Typography sx={{ fontSize: '0.75rem', color: '#64748b' }}>
@@ -449,7 +471,10 @@ export const AudioPreview: React.FC = () => {
                     </Typography>
                   </Box>
 
-                  <IconButton onClick={handleDownload}>
+                  <IconButton
+                    onClick={handleDownload}
+                    sx={{ color: '#64748b', '&:hover': { bgcolor: '#e2e8f0', color: '#1e293b' } }}
+                  >
                     <Download size={18} />
                   </IconButton>
                 </Box>
