@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { User, AuthResponse, UserRole } from '../shared/types';
+import { User, AuthResponse, UserRole } from '../types';
 
 // Define the shape of the context state
 export interface AuthContextState {

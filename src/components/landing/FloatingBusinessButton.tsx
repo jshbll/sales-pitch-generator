@@ -2,13 +2,22 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Box, Typography } from '@mui/material';
 import { Briefcase, ArrowRight } from 'lucide-react';
-import { useClerk } from '@clerk/clerk-react';
+import { useNavigate } from 'react-router-dom';
+
+// Check if Clerk is available
+const HAS_CLERK = Boolean(import.meta.env.VITE_CLERK_PUBLISHABLE_KEY);
 
 export const FloatingBusinessButton: React.FC = () => {
-  const clerk = useClerk();
+  const navigate = useNavigate();
 
   const handleClick = () => {
-    clerk.openSignIn({ redirectUrl: '/business/dashboard' });
+    if (HAS_CLERK) {
+      // When Clerk is available, go to sign-in page
+      navigate('/sign-in');
+    } else {
+      // Without Clerk, go directly to dashboard (for dev)
+      navigate('/admin/audio-generator');
+    }
   };
 
   return (

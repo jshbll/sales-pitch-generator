@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/jaxsaver.svg" />
+    <!-- iOS Safari compatible viewport with minimal-ui for better fixed positioning -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <!-- Theme color - dynamically updated by ThemeContext -->
+    <meta name="theme-color" content="#F2F2F7" />
+    
+    <!-- OpenGraph Image Meta Tags -->
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Jax Saver - Search and Save Local." />
+    
+    <title>Jax Saver</title>
+    <!-- Google Fonts for Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stripe Pricing Table Script -->
+    <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+
+    <!--Start of Tawk.to Script - Production only -->
+    <script type="text/javascript">
+    // Only load Tawk.to on production (business.jaxsaver.com)
+    if (window.location.hostname === 'business.jaxsaver.com') {
+      var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+      (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/69239e2827ad1319611fc09f/1japi3jke';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+      })();
+    }
+    </script>
+    <!--End of Tawk.to Script-->
+  </body>
+</html>

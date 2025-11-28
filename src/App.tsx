@@ -14,10 +14,13 @@ import getTheme from './theme'; // Import our custom theme function
 
 // Convex Provider with Clerk integration
 import { ConvexProviderWithClerk } from 'convex/react-clerk';
-import { ConvexReactClient } from 'convex/react';
+import { ConvexProvider, ConvexReactClient } from 'convex/react';
 import { useAuth } from '@clerk/clerk-react';
 import { ConvexClientManager } from './shared/convex-client';
 // import { ConvexAuthStorage } from './utils/convexAuthStorage'; // TEMPORARILY DISABLED
+
+// Check if Clerk is available
+const HAS_CLERK = Boolean(import.meta.env.VITE_CLERK_PUBLISHABLE_KEY);
 
 // Create Convex client as a singleton outside of React components
 // This ensures it's only created once and prevents re-initialization
@@ -113,6 +116,11 @@ function AppContent() {
   // Only show bottom nav on authenticated routes
   const shouldShowBottomNav = isMobile && !isPublicRoute;
 
+  // Conditional wrapper for OnboardingProvider (requires Clerk)
+  const MaybeOnboardingProvider = HAS_CLERK
+    ? OnboardingProvider
+    : ({ children }: { children: React.ReactNode }) => <>{children}</>;
+
   return (
     <MuiThemeProvider theme={theme}>
       <CssBaseline /> {/* Apply baseline styles and theme background */}
@@ -120,7 +128,7 @@ function AppContent() {
       <PostHogPageviewTracker />
       <TawkToManager />
       <NotificationProvider>
-        <OnboardingProvider>
+        <MaybeOnboardingProvider>
           <ExitConfirmationProvider>
             <AppRoutes />
             {/* Mount mobile bottom navigation at app root level for proper fixed positioning */}
@@ -135,7 +143,7 @@ function AppContent() {
               </>
             )}
           </ExitConfirmationProvider>
-        </OnboardingProvider>
+        </MaybeOnboardingProvider>
       </NotificationProvider>
     </MuiThemeProvider>
   );
@@ -144,11 +152,23 @@ function AppContent() {
 function ConvexAuthProvider({ children }: { children: React.ReactNode }) {
   // Use the singleton Convex client created at module level
   // This prevents re-creation and re-initialization issues
-  
+
+  // When Clerk is available, use ConvexProviderWithClerk for authenticated queries
+  // Otherwise, use basic ConvexProvider (no auth)
+  if (HAS_CLERK) {
+    return (
+      <ConvexProviderWithClerk client={convexClient} useAuth={useAuth}>
+        {children}
+      </ConvexProviderWithClerk>
+    );
+  }
+
+  // Fallback: Convex without auth (for local dev without Clerk key)
+  console.log('[App] Running Convex without Clerk auth integration');
   return (
-    <ConvexProviderWithClerk client={convexClient} useAuth={useAuth}>
+    <ConvexProvider client={convexClient}>
       {children}
-    </ConvexProviderWithClerk>
+    </ConvexProvider>
   );
 }
 

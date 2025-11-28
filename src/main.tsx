@@ -3,14 +3,15 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import './styles.css'
 import App from './App.tsx'
-import { ClerkProvider } from '@clerk/clerk-react'
 import { ThemeContextProvider } from './contexts/ThemeContext'
 import ClerkWithTheme from './components/ClerkWithTheme.tsx'
+import { MockClerkProvider } from './components/MockClerkProvider.tsx'
 
 // Initialize console logger for bug reporting (must be imported early)
 import './utils/consoleLogger';
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
+const HAS_CLERK = Boolean(PUBLISHABLE_KEY);
 
 console.log('[main.tsx] Clerk configuration:', {
   publishableKey: PUBLISHABLE_KEY ? `${PUBLISHABLE_KEY.substring(0, 20)}...` : 'NOT SET',
@@ -19,11 +20,10 @@ console.log('[main.tsx] Clerk configuration:', {
 });
 
 if (!PUBLISHABLE_KEY) {
-  console.error('[main.tsx] VITE_CLERK_PUBLISHABLE_KEY is missing!');
-  throw new Error("Missing Clerk Publishable Key");
+  console.warn('[main.tsx] VITE_CLERK_PUBLISHABLE_KEY is missing - running without auth');
 }
 
-console.log('[main.tsx] Starting React application with Clerk');
+console.log('[main.tsx] Starting React application', HAS_CLERK ? 'with Clerk' : 'without Clerk (mock auth)');
 
 const rootElement = document.getElementById('root');
 console.log('[main.tsx] Root element:', rootElement);
@@ -32,12 +32,19 @@ if (rootElement) {
   const root = createRoot(rootElement);
   console.log('[main.tsx] React root created, attempting render');
 
+  // Use ClerkWithTheme when key is available, otherwise use MockClerkProvider
+  const AuthWrapper = HAS_CLERK
+    ? ({ children }: { children: React.ReactNode }) => (
+        <ClerkWithTheme publishableKey={PUBLISHABLE_KEY!}>{children}</ClerkWithTheme>
+      )
+    : MockClerkProvider;
+
   root.render(
     <StrictMode>
       <ThemeContextProvider>
-        <ClerkWithTheme publishableKey={PUBLISHABLE_KEY}>
+        <AuthWrapper>
           <App />
-        </ClerkWithTheme>
+        </AuthWrapper>
       </ThemeContextProvider>
     </StrictMode>
   );

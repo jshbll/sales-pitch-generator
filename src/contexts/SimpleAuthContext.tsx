@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
-import { UserRole } from '../shared/types';
+import { UserRole } from '../types';
 import { AUTH_TOKEN_KEY, AUTH_USER_KEY } from '../utils/config';
 
 // Interface for our local user representation (compatible with existing code)

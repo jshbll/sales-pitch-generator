@@ -56,19 +56,37 @@ export const WizardQuestion: React.FC<WizardQuestionProps> = ({
     }
   };
 
+  // Check if answer is empty
+  const isEmpty = Array.isArray(value) ? value.length === 0 : !value || value.trim() === '';
+
   return (
     <Box sx={{ mb: 4 }}>
       {/* Question */}
-      <Typography
-        sx={{
-          fontSize: '1.25rem',
-          fontWeight: 600,
-          color: '#1e293b',
-          mb: 1,
-        }}
-      >
-        {question.question}
-      </Typography>
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
+        <Typography
+          sx={{
+            fontSize: '1.25rem',
+            fontWeight: 600,
+            color: '#1e293b',
+          }}
+        >
+          {question.question}
+        </Typography>
+        <Typography
+          component="span"
+          sx={{
+            fontSize: '0.75rem',
+            fontWeight: 500,
+            color: isEmpty ? '#ef4444' : '#22c55e',
+            bgcolor: isEmpty ? '#fef2f2' : '#f0fdf4',
+            px: 1,
+            py: 0.25,
+            borderRadius: 1,
+          }}
+        >
+          {isEmpty ? 'Required' : '✓'}
+        </Typography>
+      </Box>
 
       {/* Help text */}
       <Typography

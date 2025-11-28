@@ -8,7 +8,7 @@ import AdminLayout from '../layouts/AdminLayout';
 import { LandingLayout } from '../layouts/LandingLayout';
 
 // Lazy load pages
-const LandingPage = React.lazy(() => import('../pages/LandingPage'));
+const BusinessLandingPage = React.lazy(() => import('../pages/BusinessLandingPage'));
 const ClerkSignIn = React.lazy(() => import('../pages/ClerkSignIn'));
 const ClerkSignUp = React.lazy(() => import('../pages/ClerkSignUp'));
 const PricingPage = React.lazy(() => import('../pages/PricingPage'));
@@ -38,7 +38,7 @@ const AppRoutes: React.FC = () => {
     <Suspense fallback={<PageLoader />}>
       <Routes>
         {/* Landing page */}
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/" element={<BusinessLandingPage />} />
 
         {/* Public pages */}
         <Route path="/pricing" element={<PricingPage />} />

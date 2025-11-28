@@ -1,9 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth, useClerk, SignedOut } from '@clerk/clerk-react';
 import { PricingTable, PlanCardData } from '../pricing/PricingTable';
-import { Box } from '@mui/material';
-import { ArrowRight } from 'lucide-react';
+
+// Check if Clerk is available
+const HAS_CLERK = Boolean(import.meta.env.VITE_CLERK_PUBLISHABLE_KEY);
 
 /**
  * PricingPreview - Marketing site pricing with checkout redirect
@@ -15,8 +15,9 @@ import { ArrowRight } from 'lucide-react';
  */
 export const PricingPreview: React.FC = () => {
   const navigate = useNavigate();
-  const { isSignedIn } = useAuth();
-  const { openSignUp } = useClerk();
+
+  // Without Clerk, assume not signed in
+  const isSignedIn = false;
 
   const handlePlanClick = (plan: PlanCardData, billingPeriod: 'annual' | 'month') => {
     // Enterprise plan - redirect to contact
@@ -25,23 +26,18 @@ export const PricingPreview: React.FC = () => {
       return;
     }
 
-    // Not signed in - open signup modal with redirect to checkout
-    if (!isSignedIn) {
-      openSignUp({
-        forceRedirectUrl: `/checkout?plan=${plan.clerkPlanId}&period=${billingPeriod}`,
-        redirectUrl: `/checkout?plan=${plan.clerkPlanId}&period=${billingPeriod}`,
-      });
-      return;
+    // Without Clerk, redirect to sign-up page
+    if (HAS_CLERK) {
+      navigate(`/sign-up?redirect=/checkout?plan=${plan.clerkPlanId}&period=${billingPeriod}`);
+    } else {
+      // For dev without Clerk, go to audio generator
+      navigate('/admin/audio-generator');
     }
-
-    // Signed in - redirect directly to checkout page
-    navigate(`/checkout?plan=${plan.clerkPlanId}&period=${billingPeriod}`);
   };
 
   const getButtonText = (plan: PlanCardData): string => {
     if (plan.isCustom) return 'Contact Sales';
-    if (!isSignedIn) return 'Create Free Account';
-    return 'Start Free Trial';
+    return 'Create Free Account';
   };
 
   return (

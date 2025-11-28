@@ -61,34 +61,10 @@ export const AudioWizard: React.FC = () => {
   return (
     <Box
       sx={{
-        minHeight: '100vh',
-        bgcolor: '#f8fafc',
-        py: { xs: 4, md: 6 },
+        py: { xs: 2, md: 4 },
       }}
     >
       <Container maxWidth="md">
-        {/* Header */}
-        <Box sx={{ textAlign: 'center', mb: 4 }}>
-          <Typography
-            variant="h4"
-            sx={{
-              fontWeight: 700,
-              color: '#1e293b',
-              mb: 1,
-            }}
-          >
-            Sales Pitch Generator
-          </Typography>
-          <Typography
-            sx={{
-              color: '#64748b',
-              fontSize: '1rem',
-            }}
-          >
-            Answer 8 quick questions to generate your sales pitch
-          </Typography>
-        </Box>
-
         {/* Wizard Card */}
         <Paper
           elevation={0}

@@ -2,11 +2,14 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Box, Typography, Container, Button, useTheme } from '@mui/material';
 import { Rocket } from 'lucide-react';
-import { useClerk } from '@clerk/clerk-react';
+import { useNavigate } from 'react-router-dom';
+
+// Check if Clerk is available
+const HAS_CLERK = Boolean(import.meta.env.VITE_CLERK_PUBLISHABLE_KEY);
 
 export const AdvertiseSection: React.FC = () => {
   const theme = useTheme();
-  const clerk = useClerk();
+  const navigate = useNavigate();
   const [hasAnimated, setHasAnimated] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const [viewThreshold, setViewThreshold] = useState(0.5);
@@ -120,7 +123,7 @@ export const AdvertiseSection: React.FC = () => {
             </Typography>
             <Button
               variant="contained"
-              onClick={() => clerk.openSignIn({ redirectUrl: '/business/dashboard' })}
+              onClick={() => navigate(HAS_CLERK ? '/sign-in' : '/admin/audio-generator')}
               endIcon={<Rocket size={20} />}
               sx={{
                 bgcolor: '#FCD34D',

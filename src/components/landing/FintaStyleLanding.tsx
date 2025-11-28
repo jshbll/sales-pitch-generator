@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Typography, Container, Button, Grid, Paper } from '@mui/material';
-import { useClerk, useAuth } from '@clerk/clerk-react';
-import { useQuery } from 'convex/react';
 import { useNavigate } from 'react-router-dom';
-import { useFeatureFlagPayload } from 'posthog-js/react';
-import { api } from '../../../convex/_generated/api';
 import { ArrowRight, Star, RefreshCw, Eye, Bookmark, DollarSign, UserPlus, Sparkles, Check, User } from 'lucide-react';
-import { trackGetStartedClick } from '../../utils/marketingAnalytics';
+
+// Check if Clerk is available
+const HAS_CLERK = Boolean(import.meta.env.VITE_CLERK_PUBLISHABLE_KEY);
+
+// Analytics tracking (stub if not available)
+const trackGetStartedClick = (location: string, status: string) => {
+  console.log('[Analytics] Get Started clicked:', { location, status });
+};
 import DashboardImage from '../../assets/Dashboard.png';
 import MenuScrollGif from '../../assets/business-profile-menu-items-scroll.gif';
 import UserSaveGif from '../../assets/user-save.gif';
@@ -342,14 +345,11 @@ const AIBuilderMockup: React.FC = () => {
 // HERO SECTION - Matches Finta exactly
 // =============================================================================
 export const Hero: React.FC = () => {
-  const clerk = useClerk();
-  const { isSignedIn } = useAuth();
   const navigate = useNavigate();
 
-  // Query subscription to determine button state
-  const directSubscription = useQuery(api.clerkBilling.getCurrentSubscription);
-  const hasActiveSubscription = directSubscription?.hasSubscription &&
-    (directSubscription?.status === 'active' || directSubscription?.status === 'trialing');
+  // Without Clerk, assume not signed in
+  const isSignedIn = false;
+  const hasActiveSubscription = false;
 
   // Dynamic time calculation
   const getReturnTime = () => {
@@ -360,11 +360,8 @@ export const Hero: React.FC = () => {
 
   const [returnTime, setReturnTime] = useState(getReturnTime());
 
-  // Get H1 heading from PostHog feature flag - editable in PostHog dashboard
-  // Use | as line break marker in PostHog (e.g., "Local Customers|In A Few Clicks")
-  const h1Payload = useFeatureFlagPayload('homepage-h1-test') as { heading?: string } | null;
-  const rawHeading = h1Payload?.heading || 'Magically simplify|local marketing';
-  const headingText = rawHeading.replace(/\|/g, '\n');
+  // Default heading (feature flags disabled without PostHog)
+  const headingText = 'Magically simplify\nlocal marketing';
 
   useEffect(() => {
     const interval = setInterval(() => setReturnTime(getReturnTime()), 60000);
@@ -372,24 +369,13 @@ export const Hero: React.FC = () => {
   }, []);
 
   const handleGetStarted = () => {
-    // Track the click
-    const userState = isSignedIn
-      ? (hasActiveSubscription ? 'signed_in_with_sub' : 'signed_in_no_sub')
-      : 'signed_out';
-    trackGetStartedClick('hero', userState);
-
-    if (isSignedIn && hasActiveSubscription) {
-      navigate('/business/dashboard');
-    } else {
-      // Go to pricing page - users will sign up from there
-      navigate('/pricing');
-    }
+    trackGetStartedClick('hero', 'signed_out');
+    // Go to audio generator for demo, or pricing for production
+    navigate(HAS_CLERK ? '/pricing' : '/admin/audio-generator');
   };
 
   // Determine button text
-  const buttonText = isSignedIn
-    ? (hasActiveSubscription ? 'Dashboard' : 'Complete Signup')
-    : 'Get started';
+  const buttonText = 'Get started';
 
   return (
     <Box
@@ -2360,14 +2346,11 @@ export const TestimonialsGrid: React.FC = () => null;
 // FINAL CTA - Dark with geometric lines
 // =============================================================================
 export const FinalCTA: React.FC = () => {
-  const clerk = useClerk();
-  const { isSignedIn } = useAuth();
   const navigate = useNavigate();
 
-  // Query subscription to determine button state
-  const directSubscription = useQuery(api.clerkBilling.getCurrentSubscription);
-  const hasActiveSubscription = directSubscription?.hasSubscription &&
-    (directSubscription?.status === 'active' || directSubscription?.status === 'trialing');
+  // Without Clerk, assume not signed in
+  const isSignedIn = false;
+  const hasActiveSubscription = false;
 
   const getReturnTime = () => {
     const now = new Date();
@@ -2383,27 +2366,13 @@ export const FinalCTA: React.FC = () => {
   }, []);
 
   const handleGetStarted = () => {
-    // Track the click
-    const userState = isSignedIn
-      ? (hasActiveSubscription ? 'signed_in_with_sub' : 'signed_in_no_sub')
-      : 'signed_out';
-    trackGetStartedClick('final_cta', userState);
-
-    if (isSignedIn && hasActiveSubscription) {
-      navigate('/business/dashboard');
-    } else if (isSignedIn) {
-      // Signed in but no subscription - go to pricing page
-      navigate('/pricing');
-    } else {
-      // Not signed in - open sign up then redirect to pricing
-      clerk.openSignUp({ redirectUrl: '/pricing' });
-    }
+    trackGetStartedClick('final_cta', 'signed_out');
+    // Go to audio generator for demo, or pricing for production
+    navigate(HAS_CLERK ? '/pricing' : '/admin/audio-generator');
   };
 
   // Determine button text
-  const buttonText = isSignedIn
-    ? (hasActiveSubscription ? 'Dashboard' : 'Complete Signup')
-    : 'Get started';
+  const buttonText = 'Get started';
 
   return (
     <Box

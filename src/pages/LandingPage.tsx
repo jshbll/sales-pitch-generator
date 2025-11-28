@@ -29,3 +29,5 @@ export const LandingPage: React.FC = () => {
     </LandingLayout>
   );
 };
+
+export default LandingPage;

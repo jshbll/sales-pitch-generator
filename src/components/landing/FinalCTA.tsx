@@ -4,7 +4,7 @@ import { Box, Typography, Container, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useClerk, useAuth } from '@clerk/clerk-react';
 import { useQuery } from 'convex/react';
-import { api } from '../../../convex/_generated/api';
+import { api } from '../../../../../convex/_generated/api';
 import { ArrowRight, Phone } from 'lucide-react';
 
 export const FinalCTA: React.FC = () => {

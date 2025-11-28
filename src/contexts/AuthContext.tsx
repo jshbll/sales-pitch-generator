@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AuthResponse, User, UserRole } from '../shared/types';
+import { AuthResponse, User, UserRole } from '../types';
 import { authService } from '../services/serviceSelector';
 import { AUTH_TOKEN_KEY, AUTH_USER_KEY } from '../utils/config';
 import { AuthContext, AuthContextState } from './AuthContextDefinition'; // Only import Context and State type
