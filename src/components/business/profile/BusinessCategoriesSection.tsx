@@ -18,8 +18,8 @@ import {
   CheckBox as CheckBoxIcon,
 } from '@mui/icons-material';
 import { useQuery, useMutation } from 'convex/react';
-import { api } from '../../../../../../convex/_generated/api';
-import { Id } from '../../../../../../convex/_generated/dataModel';
+import { api } from '../../../../convex/_generated/api';
+import { Id } from '../../../../convex/_generated/dataModel';
 import { DEFAULT_BUSINESS_CATEGORIES } from '../../../utils/defaultCategories';
 import FloatingActionBar from './FloatingActionBar';
 import useAutoSave from '../../../hooks/useAutoSave';

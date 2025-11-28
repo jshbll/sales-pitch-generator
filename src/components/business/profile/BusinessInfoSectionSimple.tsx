@@ -21,8 +21,8 @@ import {
 } from '@mui/icons-material';
 import { useSnackbar } from 'notistack';
 import { useQuery, useMutation } from 'convex/react';
-import { api } from '../../../../../../convex/_generated/api';
-import { Id } from '../../../../../../convex/_generated/dataModel';
+import { api } from '../../../../convex/_generated/api';
+import { Id } from '../../../../convex/_generated/dataModel';
 import { businessService } from '../../../services/serviceSelector';
 import { useAuth } from '../../../hooks/useAuth';
 

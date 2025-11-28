@@ -30,8 +30,8 @@ import { useAuth } from '../../../hooks/useAuth';
 import { businessService } from '../../../services/serviceSelector';
 import { useSnackbar } from 'notistack';
 import { useQuery, useMutation } from 'convex/react';
-import { api } from '../../../../../../convex/_generated/api';
-import { Id } from '../../../../../../convex/_generated/dataModel';
+import { api } from '../../../../convex/_generated/api';
+import { Id } from '../../../../convex/_generated/dataModel';
 
 interface BusinessHoursSectionProps {
   businessData: any;

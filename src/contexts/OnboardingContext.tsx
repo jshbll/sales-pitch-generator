@@ -4,7 +4,7 @@ import { OnboardingStatus } from '../types/onboarding';
 import { BusinessProfile } from '../types';
 import { useAuthClerk } from '../hooks/useAuthClerk';
 import { useQuery, useMutation } from 'convex/react';
-import { api } from '../../../../convex/_generated/api';
+import { api } from '../../convex/_generated/api';
 
 // Define the context shape
 interface OnboardingContextType {

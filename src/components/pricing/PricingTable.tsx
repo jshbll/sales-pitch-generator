@@ -16,7 +16,7 @@ import {
 } from '@mui/material';
 import { Check, ArrowRight } from 'lucide-react';
 import { useQuery, useMutation } from 'convex/react';
-import { api } from '../../../../../convex/_generated/api';
+import { api } from '../../../convex/_generated/api';
 
 /**
  * PricingTable Component - Reusable pricing display

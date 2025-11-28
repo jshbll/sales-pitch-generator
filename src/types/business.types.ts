@@ -22,9 +22,4 @@ export interface SocialMedia {
   snapchat?: string;
 }
 
-/**
- * Re-exporting BusinessProfile from index.ts for consistency
- * This ensures we only have one definition of BusinessProfile in the codebase
- */
-import type { BusinessProfile } from './index';
-export type { BusinessProfile };
+// BusinessProfile is defined in index.ts to avoid circular imports

@@ -1,9 +1,9 @@
-import { ConvexClientManager } from '@jaxsaver/shared/convex-client';
+import { ConvexClientManager } from '../shared/convex-client';
 import { ApiResponse } from '../types';
 import { AUTH_USER_KEY, AUTH_TOKEN_KEY } from '../utils/config';
 import type { User, AuthResponse, LoginCredentials } from '../contexts/ConvexAuthContext';
-import { UserRole } from '@jaxsaver/shared/types';
-import { api } from '../../.././../convex/_generated/api';
+import { UserRole } from '../shared/types';
+import { api } from '../../convex/_generated/api';
 
 /**
  * Pure Convex authentication service

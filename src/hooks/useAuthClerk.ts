@@ -1,6 +1,6 @@
 import { useUser, useClerk } from '@clerk/clerk-react';
 import { useQuery, useAction } from 'convex/react';
-import { api } from '../../../../convex/_generated/api';
+import { api } from '../../convex/_generated/api';
 import { AuthContextState } from '../contexts/AuthContextDefinition';
 import { UserRole } from '../types';
 import { useEffect, useRef, useMemo, useCallback } from 'react';

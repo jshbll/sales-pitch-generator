@@ -1,6 +1,6 @@
-import { ConvexClientManager } from '@jaxsaver/shared/convex-client';
-import { api } from '../../../../convex/_generated/api.js';
-import { Id } from '../../../../convex/_generated/dataModel.js';
+import { ConvexClientManager } from '../shared/convex-client';
+import { api } from '../../convex/_generated/api';
+import { Id } from '../../convex/_generated/dataModel';
 
 // Event interfaces matching the component expectations
 interface EventData {

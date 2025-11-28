@@ -20,8 +20,8 @@ import {
 } from '@mui/icons-material';
 import { useSnackbar } from 'notistack';
 import { useQuery, useMutation } from 'convex/react';
-import { api } from '../../../../../../convex/_generated/api';
-import { Id } from '../../../../../../convex/_generated/dataModel';
+import { api } from '../../../../convex/_generated/api';
+import { Id } from '../../../../convex/_generated/dataModel';
 import { DEFAULT_BUSINESS_CATEGORIES } from '../../../utils/defaultCategories';
 import { StyledTextField } from '../../common/StyledFormComponents';
 import CategorySelectorModal from './CategorySelectorModal';

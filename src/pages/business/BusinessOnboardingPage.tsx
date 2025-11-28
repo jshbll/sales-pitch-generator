@@ -13,7 +13,7 @@ import ErrorDisplay from '../../components/common/ErrorDisplay';
 import { FormError, FormErrorType } from '../../components/business/utils/BusinessFormErrorHandler';
 import useAsyncOperation from '../../hooks/useAsyncOperation';
 import { usePageTitle } from '../../hooks/usePageTitle';
-import { api } from '../../../../../convex/_generated/api';
+import { api } from '../../../convex/_generated/api';
 
 // Extended BusinessCategory type that includes the CategoryLike index signature
 type ExtendedBusinessCategory = BusinessCategory & { [key: string]: unknown };

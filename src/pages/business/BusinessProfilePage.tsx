@@ -20,7 +20,7 @@ import {
   InputLabel,
 } from '@mui/material';
 import { useAction, useQuery } from 'convex/react';
-import { api } from '../../../../../convex/_generated/api';
+import { api } from '../../../convex/_generated/api';
 import {
   Business as BusinessIcon,
   Category as CategoryIcon,
@@ -47,7 +47,7 @@ import BusinessSocialMediaSection from '../../components/business/profile/Busine
 import LocationContextSelector from '../../components/business/LocationContextSelector';
 import LocationOnboardingWrapper from '../../components/business/LocationOnboardingWrapper';
 import InitialBusinessOnboardingWizard from '../../components/business/InitialBusinessOnboardingWizard';
-import { Id } from '../../../../../convex/_generated/dataModel';
+import { Id } from '../../../convex/_generated/dataModel';
 import PageHeader from '../../components/common/PageHeader';
 
 interface TabPanelProps {

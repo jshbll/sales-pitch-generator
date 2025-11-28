@@ -1,7 +1,7 @@
 import { useState, useCallback, useEffect, useRef, useMemo } from 'react';
 import { useAuth, useUser, useClerk } from '@clerk/clerk-react';
 import { useAction, useQuery, useMutation } from 'convex/react';
-import { api } from '../../../../convex/_generated/api';
+import { api } from '../../convex/_generated/api';
 import { useOnboardingStatus } from './useOnboardingStatus';
 
 /**

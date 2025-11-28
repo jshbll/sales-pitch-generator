@@ -1,6 +1,6 @@
-import { ConvexClientManager } from '@jaxsaver/shared/convex-client';
-import { api } from '../../../../convex/_generated/api.js';
-import { Id } from '../../../../convex/_generated/dataModel.js';
+import { ConvexClientManager } from '../shared/convex-client';
+import { api } from '../../convex/_generated/api';
+import { Id } from '../../convex/_generated/dataModel';
 import { Promotion, ApiResponse } from '../types';
 
 // Convert Convex promotion to local Promotion interface

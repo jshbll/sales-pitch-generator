@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Paper, Typography, Chip, Divider, Collapse, IconButton } from '@mui/material';
 import { useQuery } from 'convex/react';
-import { api } from '../../../../../convex/_generated/api';
+import { api } from '../../../convex/_generated/api';
 import { ChevronDown, ChevronUp, DollarSign, Zap, Volume2 } from 'lucide-react';
 
 // Only show in development

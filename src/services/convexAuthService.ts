@@ -1,11 +1,10 @@
-import { ConvexClientManager } from '@jaxsaver/shared/convex-client';
-import { createConvexAPI } from '@jaxsaver/shared/convex-client/convex-api';
-import { UserRole } from '@jaxsaver/shared/types';
+import { ConvexClientManager } from '../shared/convex-client';
+import { createConvexAPI, User as ConvexUser } from '../shared/convex-api';
+import { UserRole } from '../shared/types';
 import { ApiResponse } from '../types';
 import { AUTH_USER_KEY, AUTH_TOKEN_KEY } from '../utils/config';
 import type { User, AuthResponse, LoginCredentials } from '../contexts/ConvexAuthContext';
-import type { User as ConvexUser } from '@jaxsaver/shared/convex-client/convex-api';
-import { Id } from '../../../../convex/_generated/dataModel';
+import { Id } from '../../convex/_generated/dataModel';
 
 // We'll still use the legacy API for authentication for now
 // but will store/sync data with Convex afterward

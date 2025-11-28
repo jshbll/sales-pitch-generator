@@ -1,8 +1,7 @@
-import { ConvexClientManager } from '@jaxsaver/shared/convex-client';
-import { createConvexAPI } from '@jaxsaver/shared/convex-client/convex-api';
-import type { BaseBusiness as ConvexBusiness } from '@jaxsaver/shared/convex-client/convex-api';
-import { Id } from '../../../../convex/_generated/dataModel';
-import { api } from '../../../../convex/_generated/api';
+import { ConvexClientManager } from '../shared/convex-client';
+import { createConvexAPI, BaseBusiness as ConvexBusiness } from '../shared/convex-api';
+import { Id } from '../../convex/_generated/dataModel';
+import { api } from '../../convex/_generated/api';
 import { BusinessProfile, ApiResponse } from '../types';
 import { toBackendFormat, toFrontendFormat } from '../utils/fieldMapper';
 

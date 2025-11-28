@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
-import { UserRole } from '@jaxsaver/shared/types';
+import { UserRole } from '../shared/types';
 import { AUTH_TOKEN_KEY, AUTH_USER_KEY } from '../utils/config';
 
 // Interface for our local user representation (compatible with existing code)
@@ -255,7 +255,7 @@ export const SimpleAuthProvider: React.FC<{ children: React.ReactNode }> = ({ ch
       try {
         const businessId = normalizedAuthData.user.businessId || normalizedAuthData.user.id;
         // Dynamic import to avoid circular dependencies
-        const { api } = await import('../../../../convex/_generated/api');
+        const { api } = await import('../../convex/_generated/api');
         const { BusinessService } = await import('../services/business/BusinessService');
         const convexClient = BusinessService.getInstance().getConvexClient();
         

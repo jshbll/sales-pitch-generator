@@ -24,8 +24,8 @@ import {
   Delete as DeleteIcon,
 } from '@mui/icons-material';
 import { useQuery, useMutation } from 'convex/react';
-import { api } from '../../../../../convex/_generated/api';
-import { Id } from '../../../../../convex/_generated/dataModel';
+import { api } from '../../../convex/_generated/api';
+import { Id } from '../../../convex/_generated/dataModel';
 import { useSnackbar } from 'notistack';
 import SubscriptionRequiredModal from './SubscriptionRequiredModal';
 import { useClerkBilling } from '../../hooks/useClerkBilling';

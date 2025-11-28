@@ -16,7 +16,7 @@ import getTheme from './theme'; // Import our custom theme function
 import { ConvexProviderWithClerk } from 'convex/react-clerk';
 import { ConvexReactClient } from 'convex/react';
 import { useAuth } from '@clerk/clerk-react';
-import { ConvexClientManager } from '@jaxsaver/shared/convex-client';
+import { ConvexClientManager } from './shared/convex-client';
 // import { ConvexAuthStorage } from './utils/convexAuthStorage'; // TEMPORARILY DISABLED
 
 // Create Convex client as a singleton outside of React components

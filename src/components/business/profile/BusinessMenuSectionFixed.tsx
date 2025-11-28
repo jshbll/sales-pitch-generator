@@ -73,7 +73,7 @@ import {
 } from '@mui/icons-material';
 import { useAuth } from '../../../hooks/useAuth';
 import { useSnackbar } from 'notistack';
-import { api } from '../../../../../../convex/_generated/api';
+import { api } from '../../../../convex/_generated/api';
 import { useMutation, useQuery } from 'convex/react';
 import unifiedImageService from '../../../services/unifiedImageService';
 import MenuItemImageUploadDialog from '../MenuItemImageUploadDialog';

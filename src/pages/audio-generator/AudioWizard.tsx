@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Box, Container, Paper, Typography, CircularProgress } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useMutation } from 'convex/react';
-import { api } from '../../../../../convex/_generated/api';
+import { api } from '../../../convex/_generated/api';
 import { useWizard } from '../../audio-generator/hooks/useWizard';
 import { buildPrompt } from '../../audio-generator/promptBuilder';
 import { WizardProgress, WizardQuestion, WizardNavigation, DevUsageTracker } from '../../components/audio-generator';

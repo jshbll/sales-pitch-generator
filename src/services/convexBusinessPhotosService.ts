@@ -1,7 +1,7 @@
-import { ConvexClientManager } from '@jaxsaver/shared/convex-client';
-import { createConvexAPI } from '@jaxsaver/shared/convex-client/convex-api';
-import { Id } from '../../../../convex/_generated/dataModel';
-import { api } from '../../../../convex/_generated/api';
+import { ConvexClientManager } from '../shared/convex-client';
+import { createConvexAPI } from '../shared/convex-api';
+import { Id } from '../../convex/_generated/dataModel';
+import { api } from '../../convex/_generated/api';
 import { processImageFile } from '../utils/imageUtils';
 
 export interface BusinessPhoto {

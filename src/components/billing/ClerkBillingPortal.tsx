@@ -17,7 +17,7 @@ import {
 } from '@mui/icons-material';
 import { useUser, useClerk } from '@clerk/clerk-react';
 import { useQuery } from 'convex/react';
-import { api } from '../../../../../convex/_generated/api';
+import { api } from '../../../convex/_generated/api';
 
 /**
  * Clerk Billing Portal Component (B2C SaaS)

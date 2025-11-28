@@ -4,7 +4,7 @@ import { useClerk, useAuth } from '@clerk/clerk-react';
 import { useQuery } from 'convex/react';
 import { useNavigate } from 'react-router-dom';
 import { useFeatureFlagPayload } from 'posthog-js/react';
-import { api } from '../../../../../convex/_generated/api';
+import { api } from '../../../convex/_generated/api';
 import { ArrowRight, Star, RefreshCw, Eye, Bookmark, DollarSign, UserPlus, Sparkles, Check, User } from 'lucide-react';
 import { trackGetStartedClick } from '../../utils/marketingAnalytics';
 import DashboardImage from '../../assets/Dashboard.png';

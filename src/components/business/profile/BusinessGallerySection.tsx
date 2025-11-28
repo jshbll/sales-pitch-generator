@@ -11,8 +11,8 @@ import {
 import { useAuth } from '../../../hooks/useAuth';
 import { businessPhotosService } from '../../../services/serviceSelector';
 import { useQuery, useMutation } from 'convex/react';
-import { api } from '../../../../../../convex/_generated/api';
-import { Id } from '../../../../../../convex/_generated/dataModel';
+import { api } from '../../../../convex/_generated/api';
+import { Id } from '../../../../convex/_generated/dataModel';
 import BusinessPhotoGallery from '../BusinessPhotoGallery';
 
 interface BusinessGallerySectionProps {

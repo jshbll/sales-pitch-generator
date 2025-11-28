@@ -37,7 +37,7 @@ import { businessService } from '../../services/serviceSelector';
 import { useSnackbar } from 'notistack';
 import LoginEmailManager from '../../components/business/LoginEmailManager';
 import { useQuery, useAction, useMutation } from 'convex/react';
-import { api } from '../../../../../convex/_generated/api';
+import { api } from '../../../convex/_generated/api';
 import { useAuth } from '../../hooks/useAuth';
 import SubscriptionPlans from '../../components/business/SubscriptionPlans';
 

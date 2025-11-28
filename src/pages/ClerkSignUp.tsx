@@ -3,7 +3,7 @@ import { SignUp } from '@clerk/clerk-react';
 import { Box, Container, useTheme, Typography, CircularProgress } from '@mui/material';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useQuery } from 'convex/react';
-import { api } from '../../../../convex/_generated/api';
+import { api } from '../../convex/_generated/api';
 import { usePageTitle } from '../hooks/usePageTitle';
 
 const ClerkSignUp: React.FC = () => {
